@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <style>body {
+        font-family: sans-serif;
+    }</style>
+    <link href="/static/common.css" rel="stylesheet">
+    <title>Welcome to the Twitter Thread Unroller</title>
+</head>
+<body>
+{% include "header.html" %}
+<h1 class="center">Twitter Thread Unroller</h1>
+<p class="center">Unroll a long thread or string of retweets.</p>
+<div style="margin-left: 10%;margin-right: 10%;width: 80%" class="center">
+    <form action="/action" method="post">
+        <label for="thread">Thread</label>
+        <input type="radio" id="thread" value="thread" name="type" checked>
+        <label for="retweet">Retweet</label>
+        <input type="radio" id="retweet" value="retweet" name="type">
+        <label for="status" style="margin-left: 5%">Status ID:</label>
+        <input type="number" id="status" name="status" style="width: 30%">
+        <input type="submit" value=">">
+    </form>
+</div>
+{% include "footer.html" %}
+</body>
+</html>

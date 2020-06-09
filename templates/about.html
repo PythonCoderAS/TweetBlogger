@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <style>body {font-family: sans-serif;}</style>
+    <link href="/static/common.css" rel="stylesheet">
+    <title>About Thread Unroller</title>
+
+</head>
+<body>
+{% include "header.html" %}
+<h1 class="center">Why make this website?</h1>
+<div style="padding-left: 5%; padding-right: 5%" class="center">
+<p>Have you ever browsed a long thread on Twitter and got frustrated trying to browse to the top? Traditionally, one
+    could call {{ twitter_username("threadreaderapp")|safe }} and ask to unroll, but it does not work well when multiple
+    users have created one long chain. It also does not work when instead of being a thread, it's a chain of
+    retweets. This service tries to take these Tweets and make a blog-like page displaying the tweets in
+    chronological order of oldest to newest Tweet.</p>
+</div>
+{% include "footer.html" %}
+</body>
+</html>

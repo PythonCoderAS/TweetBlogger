@@ -1,0 +1,138 @@
+{
+  "created_at": "Mon Jun 08 19:14:47 +0000 2020",
+  "favorite_count": 93210,
+  "full_text": "...Crooked Hillary Clinton in 2016. They are called SUPPRESSION POLLS, and are put out to dampen enthusiasm. Despite 3 \u00bd years of phony Witch Hunts, we are winning, and will close it out on November 3rd! https://t.co/4IhuLUZjsv",
+  "hashtags": [],
+  "id": 1270071794628726784,
+  "id_str": "1270071794628726784",
+  "in_reply_to_screen_name": "realDonaldTrump",
+  "in_reply_to_status_id": 1270071785392943105,
+  "in_reply_to_user_id": 25073877,
+  "lang": "en",
+  "media": [
+    {
+      "display_url": "pic.twitter.com/4IhuLUZjsv",
+      "expanded_url": "https://twitter.com/realDonaldTrump/status/1270071794628726784/photo/1",
+      "id": 1270071787951456260,
+      "media_url": "http://pbs.twimg.com/media/EaAzj-AXgAQnUrW.jpg",
+      "media_url_https": "https://pbs.twimg.com/media/EaAzj-AXgAQnUrW.jpg",
+      "sizes": {
+        "thumb": {
+          "w": 150,
+          "h": 150,
+          "resize": "crop"
+        },
+        "medium": {
+          "w": 1018,
+          "h": 1035,
+          "resize": "fit"
+        },
+        "large": {
+          "w": 1018,
+          "h": 1035,
+          "resize": "fit"
+        },
+        "small": {
+          "w": 669,
+          "h": 680,
+          "resize": "fit"
+        }
+      },
+      "type": "photo",
+      "url": "https://t.co/4IhuLUZjsv"
+    }
+  ],
+  "retweet_count": 30095,
+  "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+  "urls": [],
+  "user": {
+    "id": 25073877,
+    "id_str": "25073877"
+  },
+  "user_mentions": [],
+  "entities": {
+    "hashtags": [],
+    "symbols": [],
+    "user_mentions": [],
+    "urls": [],
+    "media": [
+      {
+        "id": 1270071787951456260,
+        "id_str": "1270071787951456260",
+        "indices": [
+          204,
+          227
+        ],
+        "media_url": "http://pbs.twimg.com/media/EaAzj-AXgAQnUrW.jpg",
+        "media_url_https": "https://pbs.twimg.com/media/EaAzj-AXgAQnUrW.jpg",
+        "url": "https://t.co/4IhuLUZjsv",
+        "display_url": "pic.twitter.com/4IhuLUZjsv",
+        "expanded_url": "https://twitter.com/realDonaldTrump/status/1270071794628726784/photo/1",
+        "type": "photo",
+        "sizes": {
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "medium": {
+            "w": 1018,
+            "h": 1035,
+            "resize": "fit"
+          },
+          "large": {
+            "w": 1018,
+            "h": 1035,
+            "resize": "fit"
+          },
+          "small": {
+            "w": 669,
+            "h": 680,
+            "resize": "fit"
+          }
+        }
+      }
+    ]
+  },
+  "extended_entities": {
+    "media": [
+      {
+        "id": 1270071787951456260,
+        "id_str": "1270071787951456260",
+        "indices": [
+          204,
+          227
+        ],
+        "media_url": "http://pbs.twimg.com/media/EaAzj-AXgAQnUrW.jpg",
+        "media_url_https": "https://pbs.twimg.com/media/EaAzj-AXgAQnUrW.jpg",
+        "url": "https://t.co/4IhuLUZjsv",
+        "display_url": "pic.twitter.com/4IhuLUZjsv",
+        "expanded_url": "https://twitter.com/realDonaldTrump/status/1270071794628726784/photo/1",
+        "type": "photo",
+        "sizes": {
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "medium": {
+            "w": 1018,
+            "h": 1035,
+            "resize": "fit"
+          },
+          "large": {
+            "w": 1018,
+            "h": 1035,
+            "resize": "fit"
+          },
+          "small": {
+            "w": 669,
+            "h": 680,
+            "resize": "fit"
+          }
+        },
+        "ext_alt_text": null
+      }
+    ]
+  }
+}

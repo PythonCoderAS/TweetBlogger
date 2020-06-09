@@ -1,0 +1,50 @@
+body {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 1.25vw;
+}
+
+.center {
+    text-align: center;
+}
+
+/* Footer */
+.half {
+    display: table-column;
+    width: 50%;
+    margin-top: inherit;
+}
+
+.button {
+    border: 2px solid lightgray;
+    padding: 1%;
+}
+
+.button:hover {
+    background-color: gray;
+    border: 1px solid gray;
+}
+
+.normal_text {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.left {
+    float: left;
+    text-align: left
+}
+
+.right {
+    float: right;
+    text-align: right
+}
+
+.underline_on_hover:hover {
+    text-decoration: underline;
+}
+
+.table {
+    display: table;
+    width: 100%;
+    margin-top: 10px;
+}

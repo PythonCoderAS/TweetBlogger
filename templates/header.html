@@ -1,0 +1,9 @@
+<div class="table">
+    <div class="half left"><a href="/" class="normal_text underline_on_hover">Thread Unroller</a></div>
+    <div class="half right">
+        <a href="/about" class="button normal_text">About</a>
+    {% if status_id is defined %}
+        <a href="/pdf/{{ type }}/{{ status_id }}" class="button normal_text">Download PDF of Page</a>
+    {% endif %}
+    </div>
+</div>
