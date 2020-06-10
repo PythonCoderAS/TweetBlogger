@@ -5,7 +5,7 @@ url_left_part = compile(r"https?://")
 
 
 def username_html(prefix: str, username: str, symbol: str = "@") -> str:
-    return f'<a href="{prefix}{username}" target="_blank" class="normal_text underline_on_hover">{symbol}{username}</a>'
+    return f'<a href="{prefix}{username}" target="_blank">{symbol}{username}</a>'
 
 
 def remove_none(item_list: list) -> list:

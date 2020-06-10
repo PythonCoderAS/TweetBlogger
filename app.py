@@ -49,7 +49,7 @@ def about():
 
 
 @app.route("/thread/<int:status_id>")
-def process_thread(status_id: int):
+def process_thread(status_id: int, pdf=False):
     try:
         users, statuses = user_status_list(get_statuses_threaded(status_id))
     except TwitterError as err:
@@ -57,26 +57,29 @@ def process_thread(status_id: int):
             return render_template("404.html", status=status_id), 404
         else:
             raise
-    return render_template("status.html", users=users, statuses=statuses, status_id=status_id, type="thread")
+    return render_template("status.html", users=users, statuses=statuses, status_id=status_id, type="thread", pdf=pdf)
 
 
 @app.route("/retweet/<int:status_id>")
-def process_retweet(status_id: int):
+def process_retweet(status_id: int, pdf=False):
     try:
         users, statuses = user_status_list(get_statuses_quoted(status_id))
-    except TwitterError:
-        return render_template("404.html", status=status_id), 404
-    return render_template("status.html", users=users, statuses=statuses, status_id=status_id, type="retweet")
+    except TwitterError as err:
+        if err.args[0][0]['code'] == 144:
+            return render_template("404.html", status=status_id), 404
+        else:
+            raise
+    return render_template("status.html", users=users, statuses=statuses, status_id=status_id, type="retweet", pdf=pdf)
 
 
 @app.route("/pdf/thread/<int:item_id>")
 def generate_pdf_thread(item_id: int):
-    return generate_pdf(process_thread(item_id), item_id)
+    return generate_pdf(process_thread(item_id, pdf=True), item_id)
 
 
 @app.route("/pdf/retweet/<int:item_id>")
 def generate_pdf_retweet(item_id: int):
-    return generate_pdf(process_retweet(item_id), item_id)
+    return generate_pdf(process_retweet(item_id, pdf=True), item_id)
 
 
 def generate_pdf(data: str, item_id: int):

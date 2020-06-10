@@ -6,9 +6,19 @@
     <style>body {
         font-family: sans-serif;
     }</style>
+    {% if pdf %}
     <style>
         {% include "common.css" %}
+        #header{
+            display: none !important;
+        }
+        body {
+            font-size: 16px !important;
+        }
     </style>
+    {% else %}
+    <link href="/static/common.css" rel="stylesheet">
+    {% endif %}
     <style>
         .user {
             -webkit-touch-callout: none;

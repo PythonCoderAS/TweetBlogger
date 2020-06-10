@@ -9,7 +9,7 @@ from requests import ConnectionError
 from twitter.models import Status, TwitterModel, User
 
 from database_operations import get_cache as get_db_cache, write_cache as write_db_cache
-from utils import make_link, remove_none, url_left_part
+from utils import make_link, remove_none, url_left_part, twitter_username
 
 api = twitter.Api(consumer_key=consumer_key, consumer_secret=consumer_secret, access_token_key=access_token,
                   access_token_secret=access_token_secret, sleep_on_rate_limit=False, cache=None,
@@ -31,7 +31,7 @@ class TwitterModelEncoder(JSONEncoder):
 
 
 def get_cache(itemtype: str, item_id: int) -> dict:
-    return loads(get_db_cache(itemtype, item_id))
+    return get_db_cache(itemtype, item_id)
 
 
 def write_cache(item_type: str, obj: object) -> dict:
@@ -111,7 +111,6 @@ def generate_status_text(status: Status) -> str:
                             status.full_text)
     if status.urls:
         for url in status.urls:
-            print(url.url, url.expanded_url)
             if url.expanded_url.rstrip("/").split("/")[-1] == (
                     getattr(status, "quoted_id_str", None) or getattr(status, "quoted_status_id_str", None) or ""):
                 base = base.replace(url.url, "", 1)
@@ -123,7 +122,7 @@ def generate_status_text(status: Status) -> str:
             if base.lstrip().startswith("@"):
                 base = base.replace("@" + user.screen_name, "", 1)
             else:
-                break
+                base = base.replace("@" + user.screen_name, twitter_username(user.screen_name))
     if status.media:
         if not base.rstrip().endswith("<br />"):
             base += "<br />"
