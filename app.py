@@ -14,12 +14,11 @@ from utils import github_username, remove_none, twitter_username
 
 app = Flask(__name__)
 
-path = os.environ.get("PATH")
+
 if "darwin" in sys.implementation._multiarch:
-    path = "/usr/local/bin:" + path
+    config = pdfkit.configuration(wkhtmltopdf="/usr/local/bin/wkhtmltopdf")
 else:
-    path = os.path.abspath(os.path.join(__file__, "..")) + ":" + path
-os.putenv("PATH", path)
+    config = pdfkit.configuration(wkhtmltopdf=os.path.abspath(os.path.join(__file__, "..", "wkhtmltopdf-heroku")))
 
 status_url = compile(r"https://([\S]+\.twitter\.com|twitter\.com)/[\S]+/status/([0-9]+)")
 
@@ -82,7 +81,7 @@ def generate_pdf_retweet(item_id: int):
 def generate_pdf(data: str, item_id: int):
     if data[-1] == 404:
         return data
-    pdfkit.from_string(data, "out.pdf")
+    pdfkit.from_string(data, "out.pdf", configuration=config)
     return send_file("out.pdf", as_attachment=True, attachment_filename=f"{item_id}.pdf")
 
 
