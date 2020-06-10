@@ -8,10 +8,11 @@ from markupsafe import escape
 from requests import ConnectionError
 from twitter.models import Status, TwitterModel, User
 
-from app_secrets import consumer_key, consumer_secret
+from app_secrets import access_token, access_token_secret, consumer_key, consumer_secret
 from utils import make_link, remove_none
 
-api = twitter.Api(consumer_key=consumer_key, consumer_secret=consumer_secret, sleep_on_rate_limit=False, cache=None,
+api = twitter.Api(consumer_key=consumer_key, consumer_secret=consumer_secret, access_token_key=access_token,
+                  access_token_secret=access_token_secret, sleep_on_rate_limit=False, cache=None,
                   tweet_mode="extended")
 
 

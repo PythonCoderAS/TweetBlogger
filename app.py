@@ -1,4 +1,5 @@
 import os
+import sys
 import tarfile
 from itertools import count
 
@@ -9,7 +10,6 @@ from twitter.error import TwitterError
 from twitter_api import generate_status_text, get_statuses_quoted, get_statuses_threaded, get_unique_users, \
     user_status_list
 from utils import github_username, remove_none, twitter_username
-import sys
 
 app = Flask(__name__)
 
