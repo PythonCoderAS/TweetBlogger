@@ -2,6 +2,7 @@ import os
 import sys
 import tarfile
 from itertools import count
+from re import compile
 
 import pdfkit
 from flask import abort, Flask, redirect, render_template, request, send_file
@@ -20,6 +21,7 @@ else:
     path = os.path.abspath(os.path.join(__file__, "..")) + ":" + path
 os.putenv("PATH", path)
 
+status_url = compile(r"https://([\S]+\.twitter\.com|twitter\.com)/[\S]+/status/([0-9]+)")
 
 @app.context_processor
 def bootstrap_functions():
@@ -87,9 +89,12 @@ def generate_pdf(data: str, item_id: int):
 @app.route("/action", methods=["POST"])
 def action():
     action_type = request.form.get("type", "thread")
-    status_id = request.form.get("status")
-    if not status_id:
+    status_id: str = request.form.get("status", "")
+    match = status_url.search(status_id.strip())
+    if not status_id or not (status_id.isnumeric() or match):
         return abort(400)
+    if match:
+        status_id = match.group(2)
     if action_type == "thread":
         return redirect(f"/thread/{status_id}")
     elif action_type == "retweet":
@@ -118,7 +123,6 @@ def deal_500(*_a):
 @app.errorhandler(404)
 def deal_404(*_a):
     return render_template("404.html")
-
 
 if __name__ == '__main__':
     app.run()

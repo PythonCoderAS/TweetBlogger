@@ -15,12 +15,12 @@
 <p class="center">Unroll a long thread or string of retweets.</p>
 <div style="margin-left: 10%;margin-right: 10%;width: 80%" class="center">
     <form action="/action" method="post">
-        <label for="thread">Thread</label>
+        <label for="thread">initially a: Thread</label>
         <input type="radio" id="thread" value="thread" name="type" checked>
         <label for="retweet">Retweet</label>
         <input type="radio" id="retweet" value="retweet" name="type">
-        <label for="status" style="margin-left: 5%">Status ID:</label>
-        <input type="number" id="status" name="status" style="width: 30%">
+        <label for="status" style="margin-left: 5%">Status ID or URL:</label>
+        <input type="text" id="status" name="status" style="width: 30%">
         <input type="submit" value=">">
     </form>
 </div>
