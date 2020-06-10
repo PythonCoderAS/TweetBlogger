@@ -123,6 +123,8 @@ def generate_status_text(status: Status) -> str:
         for user in status.user_mentions:
             base = base.replace("@" + user.screen_name, "", 1)
     if status.media:
+        if not base.rstrip().endswith("<br />"):
+            base += "<br />"
         for media in status.media:
             if media.type == "photo":
                 base += f' <img src="{media.media_url_https}">'
