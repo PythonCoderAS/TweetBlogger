@@ -1,14 +1,14 @@
-import os
 import shutil
-from json import dumps, JSONEncoder, load, loads
+from json import JSONEncoder, dumps, loads
 from re import compile
 from typing import List, Tuple
 
 import twitter
+from app_secrets import access_token, access_token_secret, consumer_key, consumer_secret
 from requests import ConnectionError
 from twitter.models import Status, TwitterModel, User
 
-from app_secrets import access_token, access_token_secret, consumer_key, consumer_secret
+from database_operations import get_cache as get_db_cache, write_cache as write_db_cache
 from utils import make_link, remove_none, url_left_part
 
 api = twitter.Api(consumer_key=consumer_key, consumer_secret=consumer_secret, access_token_key=access_token,
@@ -30,28 +30,14 @@ class TwitterModelEncoder(JSONEncoder):
             return super().default(o)
 
 
-def init_cache(itemtype: str):
-    if not os.path.exists("cache"):
-        os.mkdir("cache")
-    if not os.path.exists(f"cache/{itemtype}"):
-        os.mkdir(f"cache/{itemtype}")
-
-
 def get_cache(itemtype: str, item_id: int) -> dict:
-    init_cache(itemtype)
-    if not os.path.exists(f"cache/{itemtype}/{item_id}.json"):
-        return
-    else:
-        with open(f"cache/{itemtype}/{item_id}.json", "r") as fp:
-            return load(fp)
+    return loads(get_db_cache(itemtype, item_id))
 
 
 def write_cache(item_type: str, obj: object) -> dict:
-    init_cache(item_type)
-    with open(f"cache/{item_type}/{obj.id}.json", "w") as fp:
-        json = dumps(obj, cls=TwitterModelEncoder)
-
-        fp.write(json)
+    item_id = obj.id
+    json = dumps(obj, cls=TwitterModelEncoder)
+    write_db_cache(item_type, item_id, json)
     return loads(json)
 
 

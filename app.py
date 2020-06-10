@@ -7,6 +7,7 @@ from re import compile
 import pdfkit
 from flask import abort, Flask, redirect, render_template, request, send_file
 from twitter.error import TwitterError
+from database_operations import setup_db
 
 from twitter_api import generate_status_text, get_statuses_quoted, get_statuses_threaded, get_unique_users, \
     user_status_list
