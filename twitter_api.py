@@ -55,6 +55,8 @@ def get_status(status_id: int) -> Status:
                 if retries > 1:
                     raise
         cache = write_cache("status", data)
+    if "current_user_retweet" in cache:
+        cache.pop("current_user_retweet")
     return Status.NewFromJsonDict(cache)
 
 
